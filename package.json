@@ -1,0 +1,16 @@
+{
+  "name": "statement-builder",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "cz-conventional-changelog": "^3.2.0"
+  },
+  "devDependencies": {
+    "standard-version": "^8.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "private": true
+}
