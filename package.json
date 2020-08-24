@@ -1,16 +1,27 @@
 {
   "name": "statement-builder",
-  "version": "0.0.1",
+  "version": "0.0.0",
+  "description": "Assist library project for sql statement building.",
   "main": "index.js",
-  "dependencies": {
-    "cz-conventional-changelog": "^3.2.0"
-  },
-  "devDependencies": {
-    "standard-version": "^8.0.0"
+  "directories": {
+    "lib": "lib"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VerstSiu/statement-builder.git"
+  },
+  "keywords": [
+    "kotlin",
+    "sql",
+    "statement"
+  ],
+  "author": "verstsiu",
   "license": "ISC",
-  "private": true
+  "bugs": {
+    "url": "https://github.com/VerstSiu/statement-builder/issues"
+  },
+  "homepage": "https://github.com/VerstSiu/statement-builder#readme"
 }
