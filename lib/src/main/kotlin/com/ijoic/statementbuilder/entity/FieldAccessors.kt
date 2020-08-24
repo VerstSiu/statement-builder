@@ -154,8 +154,16 @@ object FieldAccessors {
 
   /* Datetime */
 
-  private val datetimeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-  private val responseFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+  private val datetimeFormatLocal = object : ThreadLocal<SimpleDateFormat>() {
+    override fun initialValue(): SimpleDateFormat {
+      return SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+    }
+  }
+  private val responseFormatLocal = object : ThreadLocal<SimpleDateFormat>() {
+    override fun initialValue(): SimpleDateFormat {
+      return SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+    }
+  }
 
   private fun toDatetimeOrNull(text: String): Long? {
     return this.runCatching { toDatetime(text) }.getOrNull()
@@ -164,13 +172,13 @@ object FieldAccessors {
   @Throws(Exception::class)
   private fun toDatetime(text: String): Long? {
     if (text.contains('.')) {
-      return responseFormat.parse(text)?.time
+      return responseFormatLocal.get().parse(text)?.time
     }
-    return datetimeFormat.parse(text)?.time
+    return datetimeFormatLocal.get().parse(text)?.time
   }
 
   private fun toDatetimeText(timestamp: Long): String {
-    return datetimeFormat.format(timestamp)
+    return datetimeFormatLocal.get().format(timestamp)
   }
 
   /* Datetime :END */
